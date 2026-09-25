@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Black Ink Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-black: #050505;
+            --bg-charcoal: #111111;
+            --off-white: #F0EFEB;
+            --acid-green: #B7FF2A;
+            --font-display: 'Anton', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { width: 100%; height: 100%; }
+
+        /* =========================================
+           SCROLLBAR PERSONALIZADA — BLACK INK
+           ========================================= */
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: var(--acid-green) #0a0a0a;
+        }
+
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+            border-left: 1px solid rgba(255, 255, 255, .04);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                180deg,
+                rgba(183, 255, 42, .85) 0%,
+                rgba(183, 255, 42, .55) 100%
+            );
+            border-radius: 0;
+            border: 2px solid #0a0a0a;
+            transition: background .3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover { background: var(--acid-green); }
+        ::-webkit-scrollbar-thumb:active { background: #d4ff6a; }
+        ::-webkit-scrollbar-corner { background: #0a0a0a; }
+
+        body {
+            background: #050505;
+            color: var(--off-white);
+            font-family: var(--font-sans);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contact-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: 6%;
+            top: 16%;
+            background: radial-gradient(
+                circle,
+                rgba(183,255,42,.12),
+                rgba(183,255,42,.035) 45%,
+                transparent 70%
+            );
+            filter: blur(24px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.05;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+');
+        }
+
+        header {
+            position: relative;
+            z-index: 50;
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 52px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon { font-size: 28px; color: var(--acid-green); }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-text span:first-child { font-weight: 800; font-size: 18px; letter-spacing: 1px; }
+        .logo-text span:last-child { font-weight: 300; font-size: 12px; letter-spacing: 3px; color: #888; }
+
+        .nav-menu {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px;
+            background: rgba(10, 10, 10, .55);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 2px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            clip-path: polygon(
+                10px 0, 100% 0, 100% calc(100% - 10px),
+                calc(100% - 10px) 100%, 0 100%, 0 10px
+            );
+        }
+
+        .nav-menu::before {
+            content: 'MENU / 01';
+            position: absolute;
+            top: -17px; left: 0;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, .25);
+        }
+
+        .nav-menu a {
+            position: relative;
+            color: #888;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            transition: color .3s ease, background .3s ease;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            left: 50%; bottom: 4px;
+            width: 0; height: 1px;
+            background: var(--acid-green);
+            transform: translateX(-50%);
+            transition: width .3s ease;
+        }
+
+        .nav-menu a:hover { color: var(--off-white); }
+        .nav-menu a:hover::before { width: 20px; }
+
+        .nav-menu a.active {
+            color: var(--bg-black);
+            background: var(--acid-green);
+        }
+        .nav-menu a.active::before { display: none; }
+
+        .btn-schedule {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: var(--off-white);
+            padding: 13px 21px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: rgba(183, 255, 42, .04);
+            border: 0;
+            border-left: 2px solid var(--acid-green);
+            border-bottom: 1px solid rgba(183, 255, 42, .35);
+            border-radius: 0;
+            transition: .3s ease;
+        }
+
+        .btn-schedule::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 18px; height: 1px;
+            background: var(--acid-green);
+            transition: width .3s ease;
+        }
+
+        .btn-schedule:hover {
+            color: var(--acid-green);
+            background: rgba(183, 255, 42, .07);
+        }
+        .btn-schedule:hover::before { width: 100%; }
+        .btn-schedule i:last-child { transition: transform .3s ease; }
+        .btn-schedule:hover i:last-child { transform: translateX(4px); }
+
+        .contact-page {
+            position: relative;
+            max-width: 1600px;
+            height: calc(100dvh - 90px);
+            margin: 0 auto;
+            padding: 8px 52px 72px;
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 90px;
+            align-items: center;
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        .contact-left { position: relative; z-index: 30; }
+
+        .contact-title {
+            font-family: var(--font-display);
+            font-size: clamp(44px, 4.8vw, 72px);
+            line-height: .88;
+            text-transform: uppercase;
+            color: var(--off-white);
+            letter-spacing: -2px;
+            margin-bottom: 26px;
+        }
+
+        .contact-title .green {
+            color: var(--acid-green);
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: -3px;
+        }
+
+        .contact-description {
+            font-size: 13px;
+            line-height: 1.65;
+            color: #aaa;
+            max-width: 340px;
+            margin-bottom: 36px;
+        }
+
+        .direct-contact {
+            border-top: 1px solid rgba(255,255,255,.10);
+            padding-top: 18px;
+            max-width: 340px;
+        }
+
+        .direct-contact .dc-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 14px;
+        }
+
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--off-white);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            transition: color .3s ease;
+        }
+
+        .whatsapp-link .wa-line {
+            display: inline-block;
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,.25);
+            transition: width .35s ease, background .35s ease;
+        }
+
+        .whatsapp-link i {
+            color: var(--acid-green);
+            font-size: 14px;
+            transition: transform .3s ease;
+        }
+
+        .whatsapp-link:hover { color: var(--acid-green); }
+        .whatsapp-link:hover .wa-line {
+            width: 90px;
+            background: var(--acid-green);
+        }
+        .whatsapp-link:hover i { transform: translateX(4px); }
+
+        .contact-form-wrap {
+            position: relative;
+            z-index: 30;
+            width: 100%;
+            max-width: 570px;
+            justify-self: end;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid rgba(255,255,255,.12);
+        }
+
+        .form-field {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+            transition: border-color .3s ease;
+        }
+
+        .form-field:focus-within { border-color: var(--acid-green); }
+
+        .field-number {
+            color: var(--acid-green);
+            font-family: var(--font-serif);
+            font-size: 12px;
+            padding-top: 2px;
+        }
+
+        .field-content {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .field-content label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        .field-content input,
+        .field-content textarea {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            color: var(--off-white);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            resize: none;
+        }
+
+        .field-content input::placeholder,
+        .field-content textarea::placeholder { color: #444; }
+
+        .field-content textarea {
+            height: 62px;
+            line-height: 1.5;
+        }
+
+        .style-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding-top: 2px;
+        }
+
+        .style-choice {
+            position: relative;
+            background: transparent;
+            border: 0;
+            padding: 0 0 6px;
+            color: #777;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: color .3s ease;
+        }
+
+        .style-choice::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 0;
+            height: 1px;
+            background: var(--acid-green);
+            transition: width .3s ease;
+        }
+
+        .style-choice:hover { color: var(--off-white); }
+        .style-choice:hover::after { width: 100%; }
+        .style-choice.active { color: var(--off-white); }
+        .style-choice.active::after { width: 100%; }
+
+        .submit-btn {
+            position: relative;
+            width: 88%;
+            height: 52px;
+            margin-top: 18px;
+            margin-left: auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--acid-green);
+            border: 0;
+            color: #050505;
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            clip-path: polygon(
+                0 0,
+                calc(100% - 16px) 0,
+                100% 16px,
+                100% 100%,
+                16px 100%,
+                0 calc(100% - 16px)
+            );
+            transition: .3s ease;
+        }
+
+        .submit-btn span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .submit-btn .btn-num {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            opacity: .55;
+        }
+
+        .submit-btn i { transition: transform .3s ease; }
+        .submit-btn:hover { background: var(--off-white); }
+        .submit-btn:hover i { transform: translateX(5px); }
+
+        .location {
+            position: absolute;
+            bottom: 28px;
+            left: 52px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #777;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 40;
+        }
+        .location i { color: var(--acid-green); }
+
+        .social-links {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            display: flex;
+            gap: 20px;
+            z-index: 50;
+        }
+
+        .social-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: var(--acid-green); }
+
+        /* =========================================
+           PAGE TRANSITION — BLACK INK V2
+           ========================================= */
+
+        .page-transition {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            pointer-events: none;
+            visibility: hidden;
+            overflow: hidden;
+        }
+
+        .transition-panel {
+            position: absolute;
+            top: -10%;
+            width: 56%;
+            height: 120%;
+            background: #050505;
+            will-change: transform;
+            transition: transform .72s cubic-bezier(.76, 0, .24, 1);
+        }
+
+        .transition-panel-1 {
+            left: -6%;
+            transform: translate3d(-110%, 0, 0) skewX(-6deg);
+        }
+
+        .transition-panel-2 {
+            right: -6%;
+            transform: translate3d(110%, 0, 0) skewX(-6deg);
+        }
+
+        .transition-content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+
+            transform:
+                translate3d(-50%, -50%, 0)
+                translateY(16px);
+
+            opacity: 0;
+            z-index: 10;
+            will-change: opacity, transform;
+
+            transition:
+                opacity .28s ease,
+                transform .4s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .transition-index {
+            font-family: var(--font-sans);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--acid-green);
+        }
+
+        .transition-name {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 5vw, 74px);
+            line-height: 1;
+            letter-spacing: -1px;
+            color: var(--off-white);
+            white-space: nowrap;
+        }
+
+        .transition-line {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--acid-green);
+            transform: translate3d(-50%, 52px, 0);
+            z-index: 11;
+
+            box-shadow: 0 0 12px rgba(183, 255, 42, .25);
+
+            transition: width .42s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .page-transition.is-closing {
+            visibility: visible;
+            pointer-events: all;
+        }
+
+        .page-transition.is-closing .transition-panel-1,
+        .page-transition.is-closing .transition-panel-2 {
+            transform: translate3d(0, 0, 0) skewX(-6deg);
+        }
+
+        .page-transition.is-closing .transition-content {
+            opacity: 1;
+            transform:
+                translate3d(-50%, -50%, 0)
+                translateY(0);
+            transition-delay: .30s;
+        }
+
+        .page-transition.is-closing .transition-line {
+            width: min(300px, 42vw);
+            transition-delay: .34s;
+        }
+
+        .page-transition.is-opening { visibility: visible; }
+
+        .page-transition.is-opening .transition-panel-1,
+        .page-transition.is-opening .transition-panel-2 {
+            transform: translate3d(0, 0, 0) skewX(-6deg);
+            transition: none;
+        }
+
+        .page-transition.is-opening .transition-content {
+            opacity: 0;
+            transition: none;
+        }
+
+        .page-transition.is-opening .transition-line {
+            width: 0;
+            transition: none;
+        }
+
+        .page-transition.is-opening.open-now .transition-panel-1 {
+            transform: translate3d(-110%, 0, 0) skewX(-6deg);
+            transition: transform .72s cubic-bezier(.76, 0, .24, 1);
+        }
+
+        .page-transition.is-opening.open-now .transition-panel-2 {
+            transform: translate3d(110%, 0, 0) skewX(-6deg);
+            transition: transform .72s cubic-bezier(.76, 0, .24, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .transition-panel,
+            .transition-content,
+            .transition-line {
+                transition-duration: .01ms !important;
+            }
+        }
+
+        /* =========================================
+           MOBILE BOTTOM NAV — BLACK INK
+           ========================================= */
+
+        .mobile-bottom-nav {
+            display: none;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1200px) {
+            body { overflow-x: hidden; overflow-y: auto; }
+
+            .contact-page {
+                height: auto;
+                min-height: calc(100dvh - 90px);
+                grid-template-columns: 1fr;
+                gap: 50px;
+                padding: 30px 24px 100px;
+                overflow: visible;
+            }
+
+            .contact-form-wrap {
+                max-width: 100%;
+                justify-self: start;
+            }
+
+            .contact-glow {
+                width: 320px;
+                height: 320px;
+                right: 50%;
+                transform: translateX(50%);
+                top: 30%;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* ===== HEADER ===== */
+
+            header {
+                height: 68px;
+                padding: 11px 15px;
+
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                gap: 0;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu::before {
+                display: none;
+            }
+
+
+            /* LOGO */
+
+            .logo {
+                gap: 9px;
+            }
+
+            .logo-icon {
+                font-size: 22px;
+            }
+
+            .logo-text span:first-child {
+                font-size: 15px;
+            }
+
+            .logo-text span:last-child {
+                font-size: 8px;
+                letter-spacing: 2.4px;
+            }
+
+
+            /* BOTÃO AGENDAR */
+
+            .btn-schedule {
+                width: 44px;
+                height: 44px;
+
+                padding: 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border: 1px solid rgba(183,255,42,.35);
+                border-left: 2px solid var(--acid-green);
+
+                background: rgba(183,255,42,.04);
+            }
+
+            .btn-schedule span,
+            .btn-schedule i:last-child {
+                display: none;
+            }
+
+            .btn-schedule i:first-child {
+                font-size: 16px;
+            }
+
+
+            /* ===== CONTEÚDO ===== */
+
+            .contact-title {
+                font-size: clamp(42px, 11.5vw, 52px);
+                line-height: .90;
+                letter-spacing: -1.2px;
+                margin-bottom: 26px;
+            }
+
+            .contact-title .green {
+                letter-spacing: -2px;
+            }
+
+            .contact-description {
+                margin-bottom: 30px;
+            }
+
+            .direct-contact {
+                padding-top: 18px;
+            }
+
+            .style-selector { gap: 14px; }
+            .style-choice { font-size: 9px; letter-spacing: 1.4px; }
+
+            .form-field {
+                grid-template-columns: 28px 1fr;
+                gap: 10px;
+                padding: 16px 0;
+            }
+
+            .submit-btn {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .location {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: 40px;
+                margin-left: 24px;
+            }
+
+            .social-links {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+
+            /* respiro no topo + espaço pra navbar inferior */
+            .contact-page {
+                padding-top: 46px;
+                padding-bottom: 120px;
+                row-gap: 32px;
+            }
+
+            .contact-form-wrap {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            .contact-form {
+                width: 100%;
+            }
+
+            .social-links {
+                margin-bottom: 85px;
+            }
+
+
+            /* =========================================
+               NAVBAR INFERIOR — BLACK INK
+               ========================================= */
+
+            .mobile-bottom-nav {
+                position: fixed;
+
+                left: 8px;
+                right: 8px;
+                bottom: calc(8px + env(safe-area-inset-bottom));
+
+                height: 64px;
+
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+
+                background: rgba(7, 7, 7, .96);
+
+                border-top: 1px solid rgba(255,255,255,.10);
+                border-bottom: 1px solid rgba(183,255,42,.18);
+
+                border-radius: 3px;
+
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+
+                box-shadow: 0 15px 35px rgba(0,0,0,.45);
+
+                z-index: 9990;
+            }
+
+
+            /* detalhe verde no canto */
+
+            .mobile-bottom-nav::before {
+                content: '';
+
+                position: absolute;
+                top: -1px;
+                left: 0;
+
+                width: 34px;
+                height: 3px;
+
+                background: var(--acid-green);
+
+                clip-path: polygon(
+                    0 0,
+                    100% 0,
+                    82% 100%,
+                    0 100%
+                );
+            }
+
+
+            /* ITEM */
+
+            .mobile-nav-item {
+                position: relative;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                gap: 4px;
+
+                color: #696969;
+                text-decoration: none;
+
+                -webkit-tap-highlight-color: transparent;
+
+                transition: .25s ease;
+            }
+
+
+            /* divisórias */
+
+            .mobile-nav-item:not(:last-child)::after {
+                content: '';
+
+                position: absolute;
+
+                right: 0;
+                top: 18px;
+
+                width: 1px;
+                height: 27px;
+
+                background: rgba(255,255,255,.055);
+            }
+
+
+            /* ÍCONES */
+
+            .mobile-nav-item i {
+                font-size: 15px;
+
+                transition:
+                    color .25s ease,
+                    transform .25s ease;
+            }
+
+
+            /* TEXTO */
+
+            .mobile-nav-item span {
+                font-family: var(--font-sans);
+
+                font-size: 6.5px;
+                font-weight: 700;
+
+                letter-spacing: .7px;
+
+                white-space: nowrap;
+            }
+
+
+            /* ATIVO */
+
+            .mobile-nav-item.active {
+                color: var(--acid-green);
+            }
+
+            .mobile-nav-item.active i {
+                transform: translateY(-1px);
+            }
+
+            .mobile-nav-item.active::before {
+                content: '';
+
+                position: absolute;
+
+                bottom: 0;
+                left: 50%;
+
+                width: 30px;
+                height: 2px;
+
+                transform: translateX(-50%);
+
+                background: var(--acid-green);
+
+                box-shadow: 0 0 8px rgba(183,255,42,.25);
+            }
+
+            .mobile-nav-item:active i {
+                transform: scale(.85);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-glow"></div>
+    <div class="bg-grain"></div>
+
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="logo-text">
+                <span>BLACK INK</span>
+                <span>STUDIO</span>
+            </div>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="estilos.html">Estilos</a>
+            <a href="trabalhos.html">Trabalhos</a>
+            <a href="contato.html" class="active">Contato</a>
+        </nav>
+
+        <a href="contato.html" class="btn-schedule">
+            <i class="fa-regular fa-calendar"></i>
+            <span>AGENDAR SESSÃO</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </header>
+
+    <!-- =========================================
+         MOBILE BOTTOM NAV — BLACK INK
+         ========================================= -->
+    <nav class="mobile-bottom-nav">
+
+        <a href="index.html" class="mobile-nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>INÍCIO</span>
+        </a>
+
+        <a href="sobre.html" class="mobile-nav-item">
+            <i class="fa-regular fa-user"></i>
+            <span>SOBRE</span>
+        </a>
+
+        <a href="estilos.html" class="mobile-nav-item">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>ESTILOS</span>
+        </a>
+
+        <a href="trabalhos.html" class="mobile-nav-item">
+            <i class="fa-regular fa-images"></i>
+            <span>TRABALHOS</span>
+        </a>
+
+        <a href="contato.html" class="mobile-nav-item active">
+            <i class="fa-regular fa-calendar"></i>
+            <span>CONTATO</span>
+        </a>
+
+    </nav>
+
+    <main class="contact-page">
+
+        <div class="contact-left">
+
+            <h1 class="contact-title">
+                VAMOS<br>
+                MARCAR<br>
+                SUA<br>
+                <span class="green">HISTÓRIA?</span>
+            </h1>
+
+            <p class="contact-description">
+                Tem uma ideia, referência ou estilo em mente?
+                Conte um pouco sobre o que você procura e vamos
+                transformar isso em um projeto único.
+            </p>
+
+            <div class="direct-contact">
+                <div class="dc-label">PREFERE IR DIRETO AO PONTO?</div>
+
+                <!-- ⚠️ TROQUE 55SEUNUMERO PELO NÚMERO REAL -->
+                <a href="https://wa.me/55SEUNUMERO" class="whatsapp-link" target="_blank" rel="noopener">
+                    <span>WHATSAPP</span>
+                    <span class="wa-line"></span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-form-wrap">
+
+            <form class="contact-form" id="contactForm" novalidate>
+
+                <div class="form-field">
+                    <span class="field-number">01</span>
+                    <div class="field-content">
+                        <label for="nome">SEU NOME</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <span class="field-number">02</span>
+                    <div class="field-content">
+                        <label for="whatsapp">WHATSAPP</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <span class="field-number">03</span>
+                    <div class="field-content">
+                        <label>QUAL ESTILO?</label>
+
+                        <div class="style-selector" id="styleSelector">
+                            <button type="button" class="style-choice active" data-style="Blackwork">Blackwork</button>
+                            <button type="button" class="style-choice" data-style="Fine Line">Fine Line</button>
+                            <button type="button" class="style-choice" data-style="Realismo">Realismo</button>
+                            <button type="button" class="style-choice" data-style="Ornamental">Ornamental</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <span class="field-number">04</span>
+                    <div class="field-content">
+                        <label for="ideia">CONTE SUA IDEIA</label>
+                        <textarea id="ideia" name="ideia" placeholder="Região do corpo, tamanho, referências, ideia..." required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>
+                        <span class="btn-num">05</span>
+                        <span>ENVIAR SOLICITAÇÃO</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <div class="location">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>SÃO BERNARDO DO CAMPO — SP</span>
+    </div>
+
+    <div class="social-links">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+
+    <!-- PAGE TRANSITION -->
+    <div class="page-transition" aria-hidden="true">
+        <div class="transition-panel transition-panel-1"></div>
+        <div class="transition-panel transition-panel-2"></div>
+
+        <div class="transition-content">
+            <span class="transition-index">BLACK INK /</span>
+            <strong class="transition-name" id="transitionName">STUDIO</strong>
+        </div>
+
+        <div class="transition-line"></div>
+    </div>
+
+    <!-- =========================================
+         JS: FORMULÁRIO
+         ========================================= -->
+    <script>
+        const styleChoices = document.querySelectorAll('.style-choice');
+        let selectedStyle = 'Blackwork';
+
+        styleChoices.forEach(btn => {
+            btn.addEventListener('click', () => {
+                styleChoices.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedStyle = btn.getAttribute('data-style');
+            });
+        });
+
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nome     = document.getElementById('nome').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim();
+            const ideia    = document.getElementById('ideia').value.trim();
+
+            if (!nome || !whatsapp || !ideia) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            const mensagem = `Olá, Black Ink!
+
+*Nome:* ${nome}
+*WhatsApp:* ${whatsapp}
+*Estilo:* ${selectedStyle}
+*Ideia:* ${ideia}`;
+
+            // ⚠️ SUBSTITUA PELO NÚMERO REAL DO ESTÚDIO
+            const numeroEstudio = '55SEUNUMERO';
+
+            const url =
+                `https://wa.me/${numeroEstudio}?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(url, '_blank');
+        });
+
+        const whatsappInput = document.getElementById('whatsapp');
+
+        whatsappInput.addEventListener('input', (e) => {
+            let v = e.target.value.replace(/\D/g, '');
+
+            if (v.length > 11) v = v.slice(0, 11);
+
+            if (v.length > 6) {
+                v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+            } else if (v.length > 2) {
+                v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+            } else if (v.length > 0) {
+                v = `(${v}`;
+            }
+
+            e.target.value = v;
+        });
+    </script>
+
+    <!-- =========================================
+         JS: PAGE TRANSITION
+         ========================================= -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const transition = document.querySelector('.page-transition');
+        const transitionName = document.getElementById('transitionName');
+
+        if (!transition) return;
+
+        const pageNames = {
+            'index.html': '01 INÍCIO',
+            'sobre.html': '02 SOBRE',
+            'estilos.html': '03 ESTILOS',
+            'trabalhos.html': '04 TRABALHOS',
+            'contato.html': '05 CONTATO'
+        };
+
+        transition.classList.add('is-opening');
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                transition.classList.add('open-now');
+
+                setTimeout(() => {
+
+                    transition.classList.remove(
+                        'is-opening',
+                        'open-now'
+                    );
+
+                }, 780);
+
+            });
+
+        });
+
+        const links = document.querySelectorAll('a[href$=".html"]');
+
+        let navigating = false;
+
+        links.forEach(link => {
+
+            link.addEventListener('click', e => {
+
+                const href = link.getAttribute('href');
+
+                if (!href) return;
+
+                const current =
+                    window.location.pathname.split('/').pop()
+                    || 'index.html';
+
+                if (href === current) {
+                    e.preventDefault();
+                    return;
+                }
+
+                if (navigating) {
+                    e.preventDefault();
+                    return;
+                }
+
+                e.preventDefault();
+
+                navigating = true;
+
+                if (transitionName && pageNames[href]) {
+                    transitionName.textContent = pageNames[href];
+                }
+
+                transition.classList.remove(
+                    'is-opening',
+                    'open-now'
+                );
+
+                void transition.offsetWidth;
+
+                transition.classList.add('is-closing');
+
+                setTimeout(() => {
+
+                    window.location.assign(href);
+
+                }, 760);
+
+            });
+
+        });
+
+        window.addEventListener('pageshow', event => {
+
+            if (event.persisted) {
+
+                navigating = false;
+
+                transition.classList.remove(
+                    'is-closing',
+                    'is-opening',
+                    'open-now'
+                );
+
+                transition.classList.add('is-opening');
+
+                requestAnimationFrame(() => {
+
+                    requestAnimationFrame(() => {
+
+                        transition.classList.add('open-now');
+
+                        setTimeout(() => {
+
+                            transition.classList.remove(
+                                'is-opening',
+                                'open-now'
+                            );
+
+                        }, 780);
+
+                    });
+
+                });
+
+            }
+
+        });
+
+    });
+    </script>
+
+</body>
+</html>
