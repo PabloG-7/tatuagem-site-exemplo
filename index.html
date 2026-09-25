@@ -1099,6 +1099,32 @@
                 overflow-y: auto;
             }
 
+            /* =========================================
+               PERFORMANCE / ESTABILIDADE SAFARI iOS
+               ========================================= */
+
+            .bg-grain {
+                display: none;
+            }
+
+            .bg-circle {
+                filter: none;
+            }
+
+            .mobile-bottom-nav {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .play-icon {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .hero-center-image {
+                filter: none;
+            }
+
             header {
                 height: 68px;
                 padding: 11px 15px;
@@ -1226,8 +1252,6 @@
                 width: 42px;
                 height: 42px;
                 background: rgba(5,5,5,.55);
-                backdrop-filter: blur(5px);
-                -webkit-backdrop-filter: blur(5px);
             }
 
             .location {
