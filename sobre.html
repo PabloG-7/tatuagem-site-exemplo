@@ -356,19 +356,22 @@
             background-image: url('estudio.jpg');
             background-size: cover;
             background-position: center;
-            filter: grayscale(75%) contrast(1.08) brightness(.72);
+
+            filter: contrast(1.05) brightness(.82) saturate(.95);
+
             clip-path: polygon(
                 0 0, 100% 0,
                 100% calc(100% - 35px),
                 calc(100% - 35px) 100%,
                 0 100%
             );
+
             transition: filter .5s ease, transform .5s ease;
             z-index: 2;
         }
 
         .about-photo-wrapper:hover .about-photo {
-            filter: grayscale(35%) contrast(1.08) brightness(.88);
+            filter: contrast(1.05) brightness(.88) saturate(1);
             transform: scale(1.01);
         }
 
