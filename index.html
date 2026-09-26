@@ -328,8 +328,8 @@
 
         .title-script {
             position: absolute;
-            top: 37%;
-            left: 28%;
+            top: 33%;
+            left: 32%;
             font-family: var(--font-serif);
             font-size: clamp(26px, 3vw, 45px);
             font-style: italic;
@@ -979,19 +979,19 @@
             .title-main .pele { display: inline-block; }
 
             .title-script {
-                top: 35%;
-                left: 39%;
+                top: 20%;
+                left: 36%;
                 font-size: clamp(27px, 8vw, 40px);
                 z-index: 12;
             }
 
             .hero-center-image {
-                top: 125px;
+                top: -115px;
                 left: auto;
-                right: -110px;
+                right: -0px;
                 transform: none;
-                width: 390px;
-                height: 480px;
+                width: 490px;
+                height: 580px;
                 opacity: 1;
                 background-position: center bottom;
                 z-index: 15;
@@ -1218,7 +1218,7 @@
 
             .title-script {
                 top: 38%;
-                left: 34%;
+                left: 44%;
                 font-size: 27px;
                 z-index: 31;
             }
@@ -1413,12 +1413,261 @@
 
             .bg-snake { display: none; }
         }
+
+        /* =========================================================
+           TABLET — BLACK INK
+           601px até 900px
+           ========================================================= */
+
+        @media (min-width: 601px) and (max-width: 900px) {
+
+            body {
+                overflow-x: hidden;
+                overflow-y: auto;
+
+                background:
+                    radial-gradient(
+                        circle at 72% 30%,
+                        rgba(183, 255, 42, .10) 0%,
+                        rgba(17, 17, 17, .95) 28%,
+                        #050505 60%
+                    );
+            }
+
+            /* HEADER */
+            header {
+                height: 78px;
+                padding: 14px 28px;
+            }
+
+            .logo-icon { width: 28px; height: 35px; }
+            .logo-text span:first-child { font-size: 16px; }
+            .logo-text span:last-child { font-size: 9px; letter-spacing: 2.8px; }
+
+            .nav-menu { display: none; }
+
+            .btn-schedule {
+                width: auto;
+                height: auto;
+                padding: 12px 18px;
+                border: 0;
+                border-left: 2px solid var(--acid-green);
+                border-bottom: 1px solid rgba(183, 255, 42, .35);
+                background: rgba(183, 255, 42, .04);
+            }
+
+            .btn-schedule span { display: inline; font-size: 11px; }
+            .btn-schedule i:first-child { font-size: 14px; }
+            .btn-schedule i:last-child { display: inline; }
+
+            /* HERO */
+            .hero {
+                position: relative;
+                display: block;
+
+                width: 100%;
+                min-height: calc(100dvh - 78px);
+
+                padding: 45px 40px 55px;
+                overflow: hidden;
+            }
+
+            .hero-left {
+                position: relative;
+                z-index: 30;
+                width: 58%;
+            }
+
+            /* FRASE SUPERIOR */
+            .tagline {
+                gap: 8px;
+                margin-bottom: 17px;
+                font-size: 8px;
+                letter-spacing: 1.7px;
+                white-space: nowrap;
+            }
+
+            /* TÍTULO */
+            .title-container {
+                position: relative;
+                width: min(520px, 100%);
+                min-height: 0;
+                margin-bottom: 24px;
+            }
+
+            .title-main {
+                position: relative;
+                font-size: clamp(80px, 13vw, 118px);
+                line-height: .80;
+                letter-spacing: -3px;
+                z-index: 30;
+            }
+
+            .title-script {
+                top: 35%;
+                left: 38%;
+                font-size: clamp(28px, 4.5vw, 38px);
+                z-index: 32;
+            }
+
+            /* TATUADOR */
+            .hero-center-image {
+                position: absolute;
+
+                top: -200px;
+                right: clamp(-70px, -5vw, -30px);
+                left: auto;
+
+                transform: none;
+
+                width: clamp(480px, 62vw, 590px);
+                height: 650px;
+
+                background-size: contain;
+                background-position: center bottom;
+
+                opacity: 1;
+                z-index: 20;
+
+                mask-image:
+                    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+                -webkit-mask-image:
+                    linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
+            }
+
+            /* DESCRIÇÃO */
+            .description {
+                position: relative;
+                max-width: 300px;
+                margin: 0 0 24px;
+                font-size: 14px;
+                line-height: 1.55;
+                z-index: 40;
+            }
+
+            /* BOTÕES */
+            .cta-group {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 18px;
+                z-index: 40;
+            }
+
+            .btn-primary { padding: 15px 22px; font-size: 10px; gap: 14px; }
+            .btn-secondary { font-size: 10px; }
+            .btn-secondary span { display: inline; }
+            .play-icon { width: 40px; height: 40px; }
+
+            /* LOCALIZAÇÃO */
+            .location {
+                position: relative;
+                margin-top: 25px;
+                font-size: 9px;
+                letter-spacing: 1.4px;
+                z-index: 40;
+            }
+
+            /* ESTILOS — FAIXA INFERIOR 4 COLUNAS */
+            .hero-right {
+                position: relative;
+
+                width: 100%;
+                margin-top: 85px;
+                padding: 0;
+
+                transform: none;
+
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 12px;
+
+                z-index: 50;
+                background: transparent;
+            }
+
+            .style-card {
+                position: relative;
+                min-height: 125px;
+                display: block;
+                padding: 16px;
+                overflow: hidden;
+                border: 1px solid rgba(255,255,255,.09);
+                background: rgba(8,8,8,.72);
+                border-radius: 3px;
+            }
+
+            .style-card:hover { transform: translateY(-4px); }
+
+            .style-number {
+                position: relative;
+                z-index: 3;
+                font-size: 28px;
+                color: rgba(255,255,255,.17);
+            }
+
+            .style-info {
+                position: absolute;
+                left: 15px;
+                bottom: 13px;
+                z-index: 3;
+            }
+
+            .style-info h3 {
+                margin: 0;
+                font-size: 9px;
+                letter-spacing: 1.2px;
+            }
+
+            .style-info .arrow { margin-top: 4px; font-size: 11px; }
+
+            .style-image {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 75px;
+                height: 100%;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                opacity: .42;
+                background-size: cover;
+                background-position: center;
+
+                mask-image:
+                    linear-gradient(to right, transparent, #000 55%);
+                -webkit-mask-image:
+                    linear-gradient(to right, transparent, #000 55%);
+            }
+
+            /* REDES */
+            .social-links {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                width: 100%;
+                margin-top: 10px;
+                padding: 20px 40px 30px;
+                justify-content: flex-end;
+            }
+
+            /* FUNDO */
+            .bg-circle {
+                top: 100px;
+                right: -80px;
+                left: auto;
+                width: 500px;
+                height: 500px;
+            }
+
+            .bg-snake { display: none; }
+        }
     </style>
 </head>
 <body>
 
     <div class="bg-circle"></div>
-    <div class="bg-snake"></div>
     <div class="bg-grain"></div>
 
     <header>
@@ -1503,10 +1752,13 @@
                 <a href="trabalhos.html" class="btn-primary">
                     CONHECER TRABALHOS <i class="fa-solid fa-arrow-right"></i>
                 </a>
-                <a href="#" class="btn-secondary">
-                    <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-                    <span>ASSISTA<br>NOSSO ESTÚDIO</span>
-                </a>
+                <a href="sobre.html" class="btn-secondary">
+    <div class="play-icon">
+        <i class="fa-solid fa-arrow-right"></i>
+    </div>
+
+    <span>CONHEÇA<br>NOSSO ESTÚDIO</span>
+</a>
             </div>
 
             <div class="location">
