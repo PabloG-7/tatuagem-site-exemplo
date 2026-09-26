@@ -734,14 +734,10 @@
             .about-essence { grid-template-columns: 1fr; }
             .essence-item { padding: 14px 18px 14px 0; }
 
-            /* respiro maior depois do header */
+            /* respiro depois do header */
             .about-page {
                 padding-top: 48px;
-                padding-bottom: 115px;
-            }
-
-            .social-links {
-                margin-bottom: 85px;
+                padding-bottom: 35px;
             }
 
 
@@ -893,6 +889,41 @@
 
             .mobile-nav-item:active i {
                 transform: scale(.85);
+            }
+
+
+            /* ===== FINAL DA PÁGINA MOBILE ===== */
+
+            .about-page {
+                padding-bottom: 35px;
+            }
+
+            .location {
+                display: none;
+            }
+
+            .social-links {
+                position: relative;
+                left: auto;
+                right: auto;
+                bottom: auto;
+
+                width: 100%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+
+                margin: 25px 0 0;
+                padding-bottom: calc(100px + env(safe-area-inset-bottom));
+
+                z-index: 50;
+            }
+
+            .social-links a {
+                font-size: 20px;
+                color: #777;
             }
         }
     </style>
