@@ -825,32 +825,44 @@
                 letter-spacing: 1.8px;
             }
 
-            .location {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                margin-top: 40px;
-                margin-left: 24px;
-            }
-
-            .social-links {
-                position: relative;
-                bottom: auto;
-                right: auto;
-                justify-content: center;
-                margin-top: 20px;
-                margin-bottom: 30px;
-            }
-
-            /* respiro depois do header + espaço pra navbar inferior */
+            /* respiro depois do header */
             .styles-page {
                 padding-top: 46px;
-                padding-bottom: 120px;
+                padding-bottom: 35px;
                 row-gap: 26px;
             }
 
+            /* ===== FINAL DA PÁGINA MOBILE ===== */
+
+            .location {
+                display: none;
+            }
+
             .social-links {
-                margin-bottom: 85px;
+                position: relative;
+                left: auto;
+                right: auto;
+                bottom: auto;
+
+                width: 100%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+
+                margin: 25px 0 0;
+                padding-bottom: calc(100px + env(safe-area-inset-bottom));
+
+                z-index: 50;
+
+                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
+            }
+
+            .social-links a {
+                font-size: 20px;
+                color: #777;
             }
 
 
@@ -877,10 +889,17 @@
 
                 border-radius: 3px;
 
-                backdrop-filter: blur(16px);
-                -webkit-backdrop-filter: blur(16px);
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
 
                 box-shadow: 0 15px 35px rgba(0,0,0,.45);
+
+                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
+                will-change: transform;
+
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
 
                 z-index: 9990;
             }
@@ -1002,6 +1021,18 @@
 
             .mobile-nav-item:active i {
                 transform: scale(.85);
+            }
+
+            /* ===== SCROLL MOBILE MAIS LISO ===== */
+
+            html {
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-y: none;
+            }
+
+            body {
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
             }
         }
     </style>
